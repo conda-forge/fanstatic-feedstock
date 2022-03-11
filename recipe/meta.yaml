@@ -1,20 +1,20 @@
 {% set name = "fanstatic" %}
-{% set version = "1.1" %}
+{% set version = "1.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: f9938e3773625be5815723f5c19613993679bb3a4590748f92d57d66fed1323e
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: a55b165c76b53272f0b7e40fbbd074f38cf2dc56c7628e8fcfa1f82f35f2b1b7
 
 build:
   noarch: python
-  number: 2
+  number: 0
   entry_points:
     - fanstatic-compile = fanstatic.compiler:compile_resources
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -39,13 +39,13 @@ test:
     - pytest >=2.3
 
 about:
-  home: "http://fanstatic.org"
-  license: "BSD-3-Clause"
-  license_family: "BSD"
-  license_file: "LICENSE.txt"
-  summary: "Flexible static resources for web applications"
-  doc_url: "http://www.fanstatic.org/en/latest/"
-  dev_url: "https://bitbucket.org/fanstatic/fanstatic/src/default/"
+  home: http://fanstatic.org
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.txt
+  summary: Flexible static resources for web applications
+  doc_url: http://www.fanstatic.org/en/latest/
+  dev_url: https://bitbucket.org/fanstatic/fanstatic/src/default/
 
 extra:
   recipe-maintainers:
